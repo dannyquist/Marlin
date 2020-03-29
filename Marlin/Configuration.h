@@ -416,7 +416,6 @@
 #define TEMP_SENSOR_BED 11
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 0
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 
@@ -490,9 +489,9 @@
   //#define DEFAULT_Ki 1.08
   //#define DEFAULT_Kd 114
 
-  #define DEFAULT_Kp 33.78
-  #define DEFAULT_Ki 3.15
-  #define DEFAULT_Kd 90.61
+  #define DEFAULT_Kp 49.10
+  #define DEFAULT_Ki 7.34
+  #define DEFAULT_Kd 82.13
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -541,9 +540,12 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 46.97
-  #define DEFAULT_bedKi 8.73
-  #define DEFAULT_bedKd 168.46
+  #define DEFAULT_bedKp 33.95
+  #define DEFAULT_bedKi 5.73
+  #define DEFAULT_bedKd 134.02
+  //#define DEFAULT_bedKp 3
+  //#define DEFAULT_bedKi 8.73
+  //#define DEFAULT_bedKd 168.46
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -683,7 +685,7 @@
 //#define Y2_DRIVER_TYPE A4988
 #define Z2_DRIVER_TYPE TMC2130
 //#define Z3_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE A4988
+#define E0_DRIVER_TYPE TMC2130
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -735,14 +737,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 10400.00, 465 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 10400.00, 400 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 1, 75 }
+#define DEFAULT_MAX_FEEDRATE          { 1000, 1000, 1, 75 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -772,7 +774,7 @@
  */
 #define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -952,7 +954,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -42, 0, -1.05 }
+#define NOZZLE_TO_PROBE_OFFSET { 8.3, 40.5, -3.50 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1086,8 +1088,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 310
-#define Y_BED_SIZE 360
+#define X_BED_SIZE 330
+#define Y_BED_SIZE 330
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
